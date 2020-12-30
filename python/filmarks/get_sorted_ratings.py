@@ -19,6 +19,10 @@ def scraping(userId):
         for element in elements:
             title = element.find(class_="c-content-card__title").find("a").text
             rating = element.find(class_="c-rating__score").text
+
+            # タイトル後ろの不要な文字列を削除
+            title = title.replace("年製作の映画", "")
+
             ratings.append([title, rating])
 
         # 負荷影響を考えて念の為にスリープを入れる
@@ -39,7 +43,7 @@ def write_csv(ratings):
 
 
 def main():
-    userId = input()
+    userId = input("userIdを入力: ")
     ratings = scraping(userId)
     ratings = sorted_ratings(ratings)
     write_csv(ratings)
