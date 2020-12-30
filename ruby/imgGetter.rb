@@ -9,7 +9,7 @@ Bundler.require
 
 PAGE_COUNT = 20 #ページ数
 IMG_COUNT = 20 #画像の数
-CHILD_PAGE_ID = "p4" #ページングでトップページから階層を掘る場合のID
+CHILD_PAGE_ID = "p1" #ページングでトップページから階層を掘る場合のID
 
 # ページリストを取得
 def getPageUrls(url)
@@ -69,7 +69,7 @@ def writeImg(url)
 end
 
 def main
-  url = "対象のURLをいれる" + CHILD_PAGE_ID + "/"
+  url = "https://webnewtype.com/column/color/" + CHILD_PAGE_ID + "/"
 
   # ページ一覧を取得
   pageUrls = getPageUrls(url)
