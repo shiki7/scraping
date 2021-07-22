@@ -21,7 +21,7 @@ def scraping(userId):
             rating = element.find(class_="c-rating__score").text
 
             # タイトル後ろの不要な文字列を削除
-            title = title.replace("年製作の映画", "")
+            title = title.replace("年製作のアニメ", "")
 
             ratings.append([title, rating])
 
@@ -36,7 +36,7 @@ def sorted_ratings(ratings):
 
 
 def write_csv(ratings):
-    with open('./movie_rating.csv', 'w') as file:
+    with open('./anime_rating.csv', 'w') as file:
         writer = csv.writer(file)
         for i in range(len(ratings)):
             writer.writerow(ratings[i])
